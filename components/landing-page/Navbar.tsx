@@ -51,14 +51,16 @@ export const Navbar = () => {
         </div>
 
         <div>
-          <Image
-            src={
-              "https://www.fiestroevents.com/uploads/2021-01-27-60114a84c0596.png"
-            }
-            width={170}
-            height={170}
-            alt="logo"
-          />
+          <Link href={"/"}>
+            <Image
+              src={
+                "https://www.fiestroevents.com/uploads/2021-01-27-60114a84c0596.png"
+              }
+              width={170}
+              height={170}
+              alt="logo"
+            />
+          </Link>
         </div>
         <a
           href="tel:+8504920637"
