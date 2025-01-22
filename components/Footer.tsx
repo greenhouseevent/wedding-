@@ -3,12 +3,7 @@ import { Wrapper } from "./Wrapper";
 import Image from "next/image";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedin,
-  FaYoutubeSquare,
-} from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 export const Footer = () => {
