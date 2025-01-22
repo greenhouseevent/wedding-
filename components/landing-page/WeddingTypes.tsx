@@ -63,7 +63,7 @@ export const WeddingTypes = () => {
             with zero worries guaranteed.
           </p>
           <p>
-            As a royal wedding planner in Jaipur, we do not just execute royal
+            As a royal wedding planner in Kota, we do not just execute royal
             weddings in Rajasthan we incorporate all your wedding ideas, wishes,
             and rituals. So, no matter whether you belong to Marathi, Hindu,
             Christian, Sikh, Muslim, or any other community. We got you.

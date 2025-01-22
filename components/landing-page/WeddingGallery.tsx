@@ -36,7 +36,7 @@ export const WeddingGallery = () => {
           have some magic moments from the weddings that we have arranged for
           our happy couples. For us it is not only your special day, ours too.
           Have a look at the wedding gallery and know why we are the best
-          wedding decorators in Jaipur. We have various themes to decorate your
+          wedding decorators in Kota. We have various themes to decorate your
           wedding functions.
         </p>
         <div className="grid grid-rows-2 gap-2 md:grid-cols-12">

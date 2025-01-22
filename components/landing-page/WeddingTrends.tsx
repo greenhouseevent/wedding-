@@ -32,7 +32,7 @@ export const WeddingTrends = () => {
       <p className="mx-auto mb-8 max-w-4xl text-center">
         If you are wondering what kind of wedding you must have then we have
         also covered that for you. Being among the top 5 wedding planners in
-        Jaipur, we suggest you current trends in weddings, to help you to decide
+        Kota, we suggest you current trends in weddings, to help you to decide
         what suits you better. So, if you are a fan of uniqueness and want
         something different for your big day then you must read our latest
         blogs. So, dig in because we are happy to help.

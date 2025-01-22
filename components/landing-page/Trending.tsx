@@ -21,7 +21,7 @@ export const Trending = () => {
     {
       imageUrl:
         "https://www.fiestroevents.com/script/public/treadingimage/treading-image-1718087452.jpg",
-      city: "Jaipur",
+      city: "Kota",
       text: "47 Hotel Available",
     },
     {

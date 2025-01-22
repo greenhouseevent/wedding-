@@ -36,7 +36,7 @@ export const Footer = () => {
           <div className="mt-10 space-y-2 text-sm text-muted-foreground/85">
             <ul className="list-disc space-y-2">
               <li>Wedding Planner in Udaipur</li>
-              <li>Wedding Planner in Jaipur</li>
+              <li>Wedding Planner in Kota</li>
               <li>Wedding Planner in Jodhpur</li>
               <li>Wedding Planner in Jaisalmer</li>
             </ul>
