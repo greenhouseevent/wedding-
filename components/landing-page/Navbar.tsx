@@ -277,7 +277,7 @@ export const Navbar = () => {
               <NavigationMenu className="text-nowrap">
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <Link href="/galleryg" legacyBehavior passHref>
+                    <Link href="/gallery" legacyBehavior passHref>
                       <NavigationMenuLink
                         className={cn(
                           navigationMenuTriggerStyle(),
