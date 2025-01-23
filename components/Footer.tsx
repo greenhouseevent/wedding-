@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { Wrapper } from "./Wrapper";
 import Image from "next/image";
 import { Input } from "./ui/input";
@@ -7,6 +9,33 @@ import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 export const Footer = () => {
+  const [number, setNumber] = useState<null | string>(null);
+
+  async function onSubmit() {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ phone: number }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Your message was sent successfully!");
+      } else {
+        alert(
+          data.message || "Failed to send the message. Please try again later.",
+        );
+      }
+    } catch (error) {
+      console.log("Error:", error);
+      alert("Something went wrong. Please try again later.");
+    }
+  }
+
   return (
     <div className="mt-4">
       <Wrapper className="mb-8 grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 md:mb-0 md:grid-cols-3 md:gap-4">
@@ -54,9 +83,17 @@ export const Footer = () => {
           />
           <div className="flex w-full items-center justify-center gap-4 md:flex-col lg:flex-row">
             <div className="col-span-3 w-full">
-              <Input type="text" placeholder="Enter your email" />
+              <Input
+                onChange={(e) => setNumber(e.target.value)}
+                type="number"
+                placeholder="Enter your phone number"
+                onKeyDown={(e) => e.key === "Enter" && onSubmit()}
+              />
             </div>
-            <Button className="mr-auto font-semibold uppercase">
+            <Button
+              className="mr-auto font-semibold uppercase"
+              onClick={() => onSubmit()}
+            >
               SUBSCRIBE
             </Button>
           </div>

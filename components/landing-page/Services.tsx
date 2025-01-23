@@ -5,7 +5,7 @@ import ServicesCard from "../ServicesCard";
 
 export const Services = () => {
   return (
-    <div className="relative mt-4 h-full w-full">
+    <div className="relative mt-4 h-full w-full" id="services">
       <Wrapper className="p-4">
         <div className="font-medium text-muted-foreground">
           <p className="py-4 text-center text-4xl font-semibold uppercase">

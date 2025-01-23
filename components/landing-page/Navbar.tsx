@@ -150,7 +150,7 @@ export const Navbar = () => {
                       <ul>
                         <li>
                           <Link
-                            href="/about-us"
+                            href="#services"
                             className="w-full"
                             legacyBehavior
                             passHref
@@ -166,7 +166,7 @@ export const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link href="/about-us" legacyBehavior passHref>
+                          <Link href="#services" legacyBehavior passHref>
                             <NavigationMenuLink
                               className={cn(
                                 navigationMenuTriggerStyle(),
@@ -174,18 +174,6 @@ export const Navbar = () => {
                               )}
                             >
                               Social Events
-                            </NavigationMenuLink>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/about-us" legacyBehavior passHref>
-                            <NavigationMenuLink
-                              className={cn(
-                                navigationMenuTriggerStyle(),
-                                "flex w-full justify-start text-start",
-                              )}
-                            >
-                              Cooporate Events
                             </NavigationMenuLink>
                           </Link>
                         </li>
@@ -206,7 +194,7 @@ export const Navbar = () => {
                       <ul>
                         <li>
                           <Link
-                            href="/about-us"
+                            href="#venues"
                             className="w-full"
                             legacyBehavior
                             passHref
@@ -222,7 +210,7 @@ export const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link href="/about-us" legacyBehavior passHref>
+                          <Link href="#venues" legacyBehavior passHref>
                             <NavigationMenuLink
                               className={cn(
                                 navigationMenuTriggerStyle(),
@@ -234,7 +222,7 @@ export const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link href="/about-us" legacyBehavior passHref>
+                          <Link href="#venues" legacyBehavior passHref>
                             <NavigationMenuLink
                               className={cn(
                                 navigationMenuTriggerStyle(),
@@ -246,7 +234,7 @@ export const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link href="/about-us" legacyBehavior passHref>
+                          <Link href="#venues" legacyBehavior passHref>
                             <NavigationMenuLink
                               className={cn(
                                 navigationMenuTriggerStyle(),
@@ -258,7 +246,7 @@ export const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link href="/about-us" legacyBehavior passHref>
+                          <Link href="#venues" legacyBehavior passHref>
                             <NavigationMenuLink
                               className={cn(
                                 navigationMenuTriggerStyle(),
@@ -297,7 +285,7 @@ export const Navbar = () => {
               <NavigationMenu className="text-nowrap">
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <Link href="/docs" legacyBehavior passHref>
+                    <Link href="/contact" legacyBehavior passHref>
                       <NavigationMenuLink
                         className={cn(
                           navigationMenuTriggerStyle(),
