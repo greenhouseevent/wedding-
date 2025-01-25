@@ -1,4 +1,9 @@
-import React from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Wrapper } from "../Wrapper";
 import {
   NavigationMenu,
@@ -16,7 +21,6 @@ import { cn } from "@/lib/utils";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -38,13 +42,120 @@ export const Navbar = () => {
             >
               <GiHamburgerMenu />
             </SheetTrigger>
-            <SheetContent side={"left"}>
+            <SheetContent className="p-0" side={"left"}>
               <SheetHeader>
-                <SheetTitle>Are you absolutely sure?</SheetTitle>
-                <SheetDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
-                </SheetDescription>
+                <SheetTitle className="flex flex-col items-start justify-center p-4">
+                  <Link
+                    href={"/"}
+                    className="mt-8 flex items-start justify-start"
+                  >
+                    <Image
+                      src={
+                        "https://www.fiestroevents.com/uploads/2021-01-27-60114a84c0596.png"
+                      }
+                      width={170}
+                      height={170}
+                      alt="logo"
+                    />
+                  </Link>
+                </SheetTitle>
+                <div className="px-4 pb-4">
+                  <ul>
+                    <li>
+                      <Accordion type="single" collapsible>
+                        <AccordionItem value="item-1" className="border-none">
+                          <AccordionTrigger className="h-10 border-b px-4 font-bold text-primary hover:bg-gray-200">
+                            Services
+                          </AccordionTrigger>
+                          <AccordionContent className="mt-0 space-y-2 text-start font-bold">
+                            <Link
+                              href={"/#services"}
+                              className="flex items-center justify-start px-4 py-2 hover:bg-yellow-100"
+                            >
+                              Wedding Services
+                            </Link>
+                            <Link
+                              href={"/#services"}
+                              className="flex items-center justify-start px-4 py-2 hover:bg-yellow-100"
+                            >
+                              Social Events
+                            </Link>
+                          </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem value="item-2" className="border-none">
+                          <AccordionTrigger className="h-10 border-b px-4 font-bold text-primary hover:bg-gray-200">
+                            Venues in India
+                          </AccordionTrigger>
+                          <AccordionContent className="mt-0 space-y-2 text-start font-bold">
+                            <Link
+                              href={"/#venues"}
+                              className="flex items-center justify-start px-4 py-2 hover:bg-yellow-100"
+                            >
+                              Hotels & Resort
+                            </Link>
+                            <Link
+                              href={"/#venues"}
+                              className="flex items-center justify-start px-4 py-2 hover:bg-yellow-100"
+                            >
+                              Beaches & Park
+                            </Link>
+                            <Link
+                              href={"/#venues"}
+                              className="flex items-center justify-start px-4 py-2 hover:bg-yellow-100"
+                            >
+                              Heritage Venues
+                            </Link>
+                            <Link
+                              href={"/#venues"}
+                              className="flex items-center justify-start px-4 py-2 hover:bg-yellow-100"
+                            >
+                              Palaces & Fort
+                            </Link>
+                            <Link
+                              href={"/#venues"}
+                              className="flex items-center justify-start px-4 py-2 hover:bg-yellow-100"
+                            >
+                              Gardens & Farm
+                            </Link>
+                          </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem value="item-3" className="border-none">
+                          <Link
+                            href={"/gallery"}
+                            className="flex h-10 items-center justify-start border-b px-4 font-bold text-primary hover:bg-gray-200"
+                          >
+                            <SheetTrigger className="flex h-full w-full items-center justify-start">
+                              Gallery
+                            </SheetTrigger>
+                          </Link>
+                        </AccordionItem>
+                        <AccordionItem value="item-4" className="border-none">
+                          <Link
+                            href={"/contact"}
+                            className="flex h-10 items-center justify-start border-b px-4 font-bold text-primary hover:bg-gray-200"
+                          >
+                            <SheetTrigger className="flex h-full w-full items-center justify-start">
+                              Contact Us
+                            </SheetTrigger>
+                          </Link>
+                        </AccordionItem>
+                      </Accordion>
+                    </li>
+                  </ul>
+                  <div className="px-4">
+                    <Button className="mt-8 w-full">
+                      <Link
+                        href={`https://api.whatsapp.com/send/?phone=9664291374&text=Kindly%20give%20me%20a%20callback&type=phone_number&app_absent=0`}
+                        className="h-full w-full"
+                        target="_blank"
+                      >
+                        Book Now
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
               </SheetHeader>
             </SheetContent>
           </Sheet>
@@ -62,83 +173,16 @@ export const Navbar = () => {
             />
           </Link>
         </div>
-        <a
-          href="tel:+8504920637"
+        <Link
+          href={`https://api.whatsapp.com/send/?phone=9664291374&text=Kindly%20give%20me%20a%20callback&type=phone_number&app_absent=0`}
           className="flex items-center justify-center hover:cursor-pointer md:hidden"
+          target="_blank"
         >
           <FaPhoneAlt className="text-primary" size={22} />
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-4 md:flex">
           <ul className="flex items-center gap-2 text-primary">
-            <li className="hidden lg:block">
-              <NavigationMenu>
-                <NavigationMenuList>
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-primary hover:text-primary">
-                      About us
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul>
-                        <li>
-                          <Link
-                            href="/about-us"
-                            className="w-full"
-                            legacyBehavior
-                            passHref
-                          >
-                            <NavigationMenuLink
-                              className={cn(
-                                navigationMenuTriggerStyle(),
-                                "flex w-full justify-start text-start",
-                              )}
-                            >
-                              About Us
-                            </NavigationMenuLink>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/about-us" legacyBehavior passHref>
-                            <NavigationMenuLink
-                              className={cn(
-                                navigationMenuTriggerStyle(),
-                                "flex w-full justify-start text-start",
-                              )}
-                            >
-                              Team
-                            </NavigationMenuLink>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/about-us" legacyBehavior passHref>
-                            <NavigationMenuLink
-                              className={cn(
-                                navigationMenuTriggerStyle(),
-                                "flex w-full justify-start text-start",
-                              )}
-                            >
-                              Testimonials
-                            </NavigationMenuLink>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/about-us" legacyBehavior passHref>
-                            <NavigationMenuLink
-                              className={cn(
-                                navigationMenuTriggerStyle(),
-                                "flex w-full justify-start text-start",
-                              )}
-                            >
-                              Contact Us
-                            </NavigationMenuLink>
-                          </Link>
-                        </li>
-                      </ul>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
-            </li>
             <li>
               <NavigationMenu className="text-nowrap">
                 <NavigationMenuList>
@@ -150,7 +194,7 @@ export const Navbar = () => {
                       <ul>
                         <li>
                           <Link
-                            href="#services"
+                            href="/#services"
                             className="w-full"
                             legacyBehavior
                             passHref
@@ -166,7 +210,7 @@ export const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link href="#services" legacyBehavior passHref>
+                          <Link href="/#services" legacyBehavior passHref>
                             <NavigationMenuLink
                               className={cn(
                                 navigationMenuTriggerStyle(),
@@ -194,7 +238,7 @@ export const Navbar = () => {
                       <ul>
                         <li>
                           <Link
-                            href="#venues"
+                            href="/#venues"
                             className="w-full"
                             legacyBehavior
                             passHref
@@ -210,7 +254,7 @@ export const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link href="#venues" legacyBehavior passHref>
+                          <Link href="/#venues" legacyBehavior passHref>
                             <NavigationMenuLink
                               className={cn(
                                 navigationMenuTriggerStyle(),
@@ -222,7 +266,7 @@ export const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link href="#venues" legacyBehavior passHref>
+                          <Link href="/#venues" legacyBehavior passHref>
                             <NavigationMenuLink
                               className={cn(
                                 navigationMenuTriggerStyle(),
@@ -234,7 +278,7 @@ export const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link href="#venues" legacyBehavior passHref>
+                          <Link href="/#venues" legacyBehavior passHref>
                             <NavigationMenuLink
                               className={cn(
                                 navigationMenuTriggerStyle(),
@@ -246,7 +290,7 @@ export const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link href="#venues" legacyBehavior passHref>
+                          <Link href="/#venues" legacyBehavior passHref>
                             <NavigationMenuLink
                               className={cn(
                                 navigationMenuTriggerStyle(),
@@ -300,7 +344,15 @@ export const Navbar = () => {
               </NavigationMenu>
             </li>
           </ul>
-          <Button>Book Now</Button>
+          <Button>
+            <Link
+              href={`https://api.whatsapp.com/send/?phone=9664291374&text=Kindly%20give%20me%20a%20callback&type=phone_number&app_absent=0`}
+              className="h-full w-full"
+              target="_blank"
+            >
+              Book Now
+            </Link>
+          </Button>
         </div>
       </Wrapper>
     </div>

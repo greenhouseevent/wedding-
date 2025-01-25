@@ -61,28 +61,22 @@ const Contact = () => {
   });
 
   // 2. Define a submit handler.
+  // Define a submit handler
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
+      // Construct the message using form values
+      const message = `Name: ${values.name}\nVenue: ${values.venue}\nEmail: ${values.email}\nPhone: ${values.phone}\nMessage: ${values.message}`;
 
-      const data = await response.json();
+      // Encode the message for use in the URL
+      const encodedMessage = encodeURIComponent(message);
 
-      if (response.ok) {
-        alert("Your message was sent successfully!");
-        form.reset();
-      } else {
-        alert(
-          data.message || "Failed to send the message. Please try again later.",
-        );
-      }
+      // Construct the WhatsApp link
+      const whatsappLink = `https://api.whatsapp.com/send/?phone=9664291374&text=${encodedMessage}&type=phone_number&app_absent=0`;
+
+      // Redirect the user to the WhatsApp link
+      window.location.href = whatsappLink;
     } catch (error) {
-      console.log("Error:", error);
+      console.error("Error:", error);
       alert("Something went wrong. Please try again later.");
     }
   }

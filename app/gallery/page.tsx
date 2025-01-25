@@ -1,5 +1,6 @@
 import { Wrapper } from "@/components/Wrapper";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const GalleryPage = () => {
@@ -50,7 +51,8 @@ const GalleryPage = () => {
 
         <div className="my-10 grid gap-8 p-4 sm:grid-cols-2 md:grid-cols-3">
           {galleries.map((gallery, indx) => (
-            <div
+            <Link
+              href={`/gallery/${gallery.event.toLocaleLowerCase()}`}
               className="group relative overflow-hidden rounded-xl hover:cursor-pointer"
               key={indx}
             >
@@ -64,7 +66,7 @@ const GalleryPage = () => {
               <div className="absolute top-0 flex h-full w-full items-center justify-center bg-black/50 text-2xl uppercase text-white">
                 <p>{gallery.event}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </Wrapper>
