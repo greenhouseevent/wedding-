@@ -5,8 +5,9 @@ import { Wrapper } from "./Wrapper";
 import Image from "next/image";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import Link from "next/link";
+import { FaYoutube } from "react-icons/fa6";
 
 export const Footer = () => {
   const [number, setNumber] = useState<null | string>(null);
@@ -88,11 +89,22 @@ export const Footer = () => {
             </Button>
           </div>
           <div className="mb-4 mr-auto flex justify-start gap-2 text-xl">
-            <FaFacebookF className="text-blue-600" />
-            <FaXTwitter className="text-blue-600" />
-            <FaInstagram className="text-blue-600" />
+            <Link
+              href={
+                "https://www.facebook.com/share/1QHbRKwMvt/?mibextid=wwXIfr"
+              }
+            >
+              <FaFacebookF className="text-blue-600" />
+            </Link>
+            <Link
+              href={
+                "https://www.instagram.com/greenhouseevent?igsh=MTU3am5tbHE3a2N6YQ%3D%3D&utm_source=qr"
+              }
+            >
+              <FaInstagram className="text-blue-600" />
+            </Link>
+
             <FaYoutube className="text-red-600" />
-            <FaLinkedin className="text-blue-600" />
           </div>
         </div>
       </Wrapper>

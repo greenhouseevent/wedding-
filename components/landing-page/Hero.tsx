@@ -67,7 +67,7 @@ export const Hero = () => {
           <div className="col-span-3 row-span-3 flex h-full w-full flex-col items-center justify-center gap-2 self-end">
             <div className="text-sm md:text-lg">
               <p className="font-bold">
-                Destination with strees free mind WE ARE YOUR DESIGNERS
+                Destination with stress free mind WE ARE YOUR DESIGNERS
               </p>
               <Button
                 size={"lg"}
