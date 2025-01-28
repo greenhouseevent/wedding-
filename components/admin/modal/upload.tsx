@@ -1,14 +1,12 @@
 import React, { SetStateAction, useState } from "react";
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import Image from "next/image";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -29,7 +27,7 @@ const HomePageUploadModal = ({
   const { toast } = useToast();
   const [image, setImage] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [, setLoading] = useState<boolean>(false);
 
   const handleUpload = async () => {
     if (!image) return;

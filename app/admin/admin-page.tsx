@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Wrapper } from "@/components/Wrapper";
 import HomePageUploadModal from "@/components/admin/modal/upload";
 import {
-  Prisma,
   WeddingGallery,
   WeddingTrends,
   WeddingTypes,
