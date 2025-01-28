@@ -35,7 +35,7 @@ export const WeddingTrends = () => {
         Kota, we suggest you current trends in weddings, to help you to decide
         what suits you better. So, if you are a fan of uniqueness and want
         something different for your big day then you must read our latest
-        blogs. So, dig in because we are happy to help.
+        vlogs. So, dig in because we are happy to help.
       </p>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
         <div className="relative overflow-hidden">
