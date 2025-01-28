@@ -90,6 +90,7 @@ export const Footer = () => {
           </div>
           <div className="mb-4 mr-auto flex justify-start gap-2 text-xl">
             <Link
+              target="_blank"
               href={
                 "https://www.facebook.com/share/1QHbRKwMvt/?mibextid=wwXIfr"
               }
@@ -97,6 +98,7 @@ export const Footer = () => {
               <FaFacebookF className="text-blue-600" />
             </Link>
             <Link
+              target="_blank"
               href={
                 "https://www.instagram.com/greenhouseevent?igsh=MTU3am5tbHE3a2N6YQ%3D%3D&utm_source=qr"
               }
