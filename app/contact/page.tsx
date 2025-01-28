@@ -95,19 +95,19 @@ const Contact = () => {
         <div className="md:text-center">
           <h3 className="text-center text-2xl uppercase">Get in Touch With</h3>
           <h5 className="my-1 text-center text-xl font-medium uppercase text-primary">
-            Fiestro events
+            Green House events
           </h5>
           <p className="font-medium text-foreground/60 md:text-lg">
-            Fiestro Events is a team of wedding planners in Jaipur that makes
-            wedding planning easy and fun. Be it an intimate wedding or a grand
-            celebration, our team of event planners in Jaipur are experienced
-            professionals who take care of everything from setup to teardown.
-            For destination weddings in India or abroad, you can rely on us for
-            the complete planning and execution. You can contact us today for
-            destination weddings in Goa, Udaipur, Kerala, Jaipur, Chennai,
-            Mussoorie, Dehradun, Mumbai, Agra, etc. However, if you are looking
-            for a foreign wedding planner, you are at the right place. We help
-            plan abroad weddings in exotic international locations like
+            Green House Events is a team of wedding planners in Jaipur that
+            makes wedding planning easy and fun. Be it an intimate wedding or a
+            grand celebration, our team of event planners in Jaipur are
+            experienced professionals who take care of everything from setup to
+            teardown. For destination weddings in India or abroad, you can rely
+            on us for the complete planning and execution. You can contact us
+            today for destination weddings in Goa, Udaipur, Kerala, Jaipur,
+            Chennai, Mussoorie, Dehradun, Mumbai, Agra, etc. However, if you are
+            looking for a foreign wedding planner, you are at the right place.
+            We help plan abroad weddings in exotic international locations like
             Thailand, Phuket, Bali, Greece, Paris, Dubai, Jakarta, Vietnam, etc.
             So, if you are looking for the best wedding destinations in Jaipur
             or anywhere else, fill out this form and our team will contact you

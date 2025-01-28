@@ -54,7 +54,7 @@ export const WeddingTrends = () => {
             alt="image"
             width={100}
             height={100}
-            className="h-full w-full object-cover transition-transform duration-300 hover:scale-125"
+            className="aspect-video h-full w-full object-cover transition-transform duration-300 hover:scale-125"
             unoptimized
           />
         </div>
@@ -64,7 +64,7 @@ export const WeddingTrends = () => {
             alt="image"
             width={100}
             height={100}
-            className="h-full w-full object-cover transition-transform duration-300 hover:scale-125"
+            className="aspect-video h-full w-full object-cover transition-transform duration-300 hover:scale-125"
             unoptimized
           />
         </div>
@@ -74,7 +74,7 @@ export const WeddingTrends = () => {
             alt="image"
             width={100}
             height={100}
-            className="h-full w-full object-cover transition-transform duration-300 hover:scale-125"
+            className="aspect-video h-full w-full object-cover transition-transform duration-300 hover:scale-125"
             unoptimized
           />
         </div>
@@ -84,7 +84,7 @@ export const WeddingTrends = () => {
             alt="image"
             width={100}
             height={100}
-            className="h-full w-full object-cover transition-transform duration-300 hover:scale-125"
+            className="aspect-video h-full w-full object-cover transition-transform duration-300 hover:scale-125"
             unoptimized
           />
         </div>

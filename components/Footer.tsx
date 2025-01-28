@@ -37,18 +37,11 @@ export const Footer = () => {
   }
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 border-t">
       <Wrapper className="mb-8 grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 md:mb-0 md:grid-cols-3 md:gap-4">
-        <div className="flex flex-col items-center justify-start md:py-8">
-          <Image
-            src={
-              "https://www.fiestroevents.com/uploads/2021-01-27-60114a84c0596.png"
-            }
-            width={170}
-            height={170}
-            alt="logo"
-          />
-          <div className="mt-8 space-y-4 text-center text-sm text-muted-foreground/80">
+        <div className="flex flex-col items-center justify-start">
+          <Image src={"/assets/logo.png"} width={100} height={100} alt="logo" />
+          <div className="mt-4 space-y-4 text-center text-sm text-muted-foreground/80">
             <p>Terms & conditions | Real Wedding | Gallery</p>
             <p>Wedding Services | Blog | About | Sitemap</p>
             <p>Testimonials | Wedding Hotels</p>
@@ -57,10 +50,9 @@ export const Footer = () => {
         <div className="flex flex-col items-center justify-start md:py-8 md:shadow-[rgba(50,_50,_105,_0.15)_0px_4px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
           <h3 className="flex gap-0 text-2xl text-primary/95">
             <span className="relative">
-              Fiestro F
+              Contact Details
               <span className="absolute -bottom-2 block h-[1px] w-full bg-primary"></span>
             </span>
-            avourite
           </h3>
           <div className="mt-10 space-y-2 text-sm text-muted-foreground/85">
             <ul className="list-disc space-y-2">
@@ -71,13 +63,11 @@ export const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-start gap-2 sm:col-span-2 sm:flex-row md:col-span-1 md:flex-col md:gap-6 md:py-8">
+        <div className="flex flex-col items-center justify-start gap-2 sm:col-span-2 sm:flex-row md:col-span-1 md:flex-col md:gap-6">
           <Image
-            src={
-              "https://www.fiestroevents.com/uploads/21/01/5ff54a435ee4d0601211609910851.png"
-            }
-            width={60}
-            height={60}
+            src={"/assets/logo.png"}
+            width={100}
+            height={100}
             alt="footer image"
             className="mb-4 sm:mb-0"
           />
@@ -97,7 +87,7 @@ export const Footer = () => {
               SUBSCRIBE
             </Button>
           </div>
-          <div className="mr-auto flex justify-start gap-2 text-xl">
+          <div className="mb-4 mr-auto flex justify-start gap-2 text-xl">
             <FaFacebookF className="text-blue-600" />
             <FaXTwitter className="text-blue-600" />
             <FaInstagram className="text-blue-600" />

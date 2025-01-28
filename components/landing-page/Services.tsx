@@ -13,10 +13,10 @@ export const Services = () => {
           </p>
           <p className="my-6 sm:text-center">
             Looking for the best wedding planner in Kota and India? Then look no
-            more. Fiestro Events is one of the top 10 wedding planner in India
-            that allows you to plan your weddings with excitement and ease. We
-            provide end-to-end event management solutions from venues to
-            decoration and organizing guest lists. Our team of expert wedding
+            more. Green House Events is one of the top 10 wedding planner in
+            India that allows you to plan your weddings with excitement and
+            ease. We provide end-to-end event management solutions from venues
+            to decoration and organizing guest lists. Our team of expert wedding
             planners in Kota will help you enjoy the event and let all the
             workload be on us. Our motto is to make your wedding day a time you
             can enjoy without worrying about preparations. We have the most
@@ -33,9 +33,9 @@ export const Services = () => {
         </div>
         <div className="mt-10 flex flex-col items-center justify-center">
           <div className="flex items-center justify-center gap-1 text-2xl font-bold text-primary">
-            <span className="font-semibold text-muted-foreground">Service</span>{" "}
+            <span className="font-semibold text-muted-foreground">Our</span>{" "}
             <span className="mt-[2px] text-xl font-medium text-primary/90">
-              Categories
+              Services
             </span>
           </div>
           <Image

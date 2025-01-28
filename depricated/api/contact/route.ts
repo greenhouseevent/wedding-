@@ -16,7 +16,7 @@ export async function POST(req: NextRequest, res: Response) {
     await client.messages.create({
       from: `whatsapp:${fromWhatsAppNumber}`,
       to: `whatsapp:${toWhatsAppNumber}`,
-      body: `You have a new inquiry from Fiestro Events Contact Form:\n\nName: ${name}\nVenue: ${venue}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
+      body: `You have a new inquiry from Green House Events Contact Form:\n\nName: ${name}\nVenue: ${venue}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
     });
 
     return NextResponse.json({

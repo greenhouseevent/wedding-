@@ -30,8 +30,8 @@ import { FaPhoneAlt } from "react-icons/fa";
 
 export const Navbar = () => {
   return (
-    <div className="sticky top-0 z-50 bg-background p-4">
-      <Wrapper className="flex justify-between gap-4">
+    <div className="sticky top-0 z-50 bg-background px-4">
+      <Wrapper className="flex items-center justify-between gap-4">
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger
@@ -45,17 +45,13 @@ export const Navbar = () => {
             <SheetContent className="p-0" side={"left"}>
               <SheetHeader>
                 <SheetTitle className="flex flex-col items-start justify-center p-4">
-                  <Link
-                    href={"/"}
-                    className="mt-8 flex items-start justify-start"
-                  >
+                  <Link href={"/"} className="flex items-start justify-start">
                     <Image
-                      src={
-                        "https://www.fiestroevents.com/uploads/2021-01-27-60114a84c0596.png"
-                      }
+                      src={"/assets/logo.png"}
                       width={170}
                       height={170}
                       alt="logo"
+                      className="aspect-square h-20 w-20"
                     />
                   </Link>
                 </SheetTitle>
@@ -64,27 +60,25 @@ export const Navbar = () => {
                     <li>
                       <Accordion type="single" collapsible>
                         <AccordionItem value="item-1" className="border-none">
-                          <AccordionTrigger className="h-10 border-b px-4 font-bold text-primary hover:bg-gray-200">
+                          <Link
+                            href={"/#services"}
+                            className="flex h-9 items-center justify-start border-b px-4 font-bold text-primary hover:bg-gray-200"
+                          >
                             Services
-                          </AccordionTrigger>
-                          <AccordionContent className="mt-0 space-y-2 text-start font-bold">
-                            <Link
-                              href={"/#services"}
-                              className="flex items-center justify-start px-4 py-2 hover:bg-yellow-100"
-                            >
-                              Wedding Services
-                            </Link>
-                            <Link
-                              href={"/#services"}
-                              className="flex items-center justify-start px-4 py-2 hover:bg-yellow-100"
-                            >
-                              Social Events
-                            </Link>
-                          </AccordionContent>
+                          </Link>
+                        </AccordionItem>
+
+                        <AccordionItem value="item-1" className="border-none">
+                          <Link
+                            href={"/about-us"}
+                            className="flex h-9 items-center justify-start border-b px-4 font-bold text-primary hover:bg-gray-200"
+                          >
+                            <SheetTrigger>About us</SheetTrigger>
+                          </Link>
                         </AccordionItem>
 
                         <AccordionItem value="item-2" className="border-none">
-                          <AccordionTrigger className="h-10 border-b px-4 font-bold text-primary hover:bg-gray-200">
+                          <AccordionTrigger className="h-10 border-b px-4 font-bold text-primary hover:bg-gray-200 hover:no-underline">
                             Venues in India
                           </AccordionTrigger>
                           <AccordionContent className="mt-0 space-y-2 text-start font-bold">
@@ -145,7 +139,7 @@ export const Navbar = () => {
                     </li>
                   </ul>
                   <div className="px-4">
-                    <Button className="mt-8 w-full">
+                    <Button asChild className="mt-8 w-full">
                       <Link
                         href={`https://api.whatsapp.com/send/?phone=9664291374&text=Kindly%20give%20me%20a%20callback&type=phone_number&app_absent=0`}
                         className="h-full w-full"
@@ -164,12 +158,11 @@ export const Navbar = () => {
         <div>
           <Link href={"/"}>
             <Image
-              src={
-                "https://www.fiestroevents.com/uploads/2021-01-27-60114a84c0596.png"
-              }
+              src={"/assets/logo.png"}
               width={170}
               height={170}
               alt="logo"
+              className="h-20 w-20"
             />
           </Link>
         </div>
@@ -187,42 +180,28 @@ export const Navbar = () => {
               <NavigationMenu className="text-nowrap">
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-primary hover:text-primary">
-                      Services
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul>
-                        <li>
-                          <Link
-                            href="/#services"
-                            className="w-full"
-                            legacyBehavior
-                            passHref
-                          >
-                            <NavigationMenuLink
-                              className={cn(
-                                navigationMenuTriggerStyle(),
-                                "flex w-full justify-start text-start",
-                              )}
-                            >
-                              Wedding Services
-                            </NavigationMenuLink>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#services" legacyBehavior passHref>
-                            <NavigationMenuLink
-                              className={cn(
-                                navigationMenuTriggerStyle(),
-                                "flex w-full justify-start text-start",
-                              )}
-                            >
-                              Social Events
-                            </NavigationMenuLink>
-                          </Link>
-                        </li>
-                      </ul>
-                    </NavigationMenuContent>
+                    <Link href="/#services" legacyBehavior passHref>
+                      <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                      >
+                        Services
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+            </li>
+            <li>
+              <NavigationMenu className="text-nowrap">
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <Link href="/about-us" legacyBehavior passHref>
+                      <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                      >
+                        About Us
+                      </NavigationMenuLink>
+                    </Link>
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
@@ -344,7 +323,7 @@ export const Navbar = () => {
               </NavigationMenu>
             </li>
           </ul>
-          <Button>
+          <Button asChild>
             <Link
               href={`https://api.whatsapp.com/send/?phone=9664291374&text=Kindly%20give%20me%20a%20callback&type=phone_number&app_absent=0`}
               className="h-full w-full"

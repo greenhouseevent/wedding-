@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { Wrapper } from "./Wrapper";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 const ServicesCard = () => {
   const services = [
@@ -45,14 +46,19 @@ const ServicesCard = () => {
 
   return (
     <div>
-      <Wrapper className="mt-8 grid max-w-[70rem] gap-4 sm:grid-cols-2">
+      <Wrapper className="mt-8 grid max-w-[70rem] gap-4 sm:grid-cols-3">
         {services.map((service, indx) => (
-          <div key={indx} className="relative h-20 w-full">
+          <div key={indx} className="relative h-40 w-full">
             <div className="absolute top-0 z-20 flex h-full max-w-[50%] flex-col justify-center pl-4 text-white">
               <h4 className="font-bold text-foreground">{service.heading}</h4>
-              <p className="text-start text-sm text-muted-foreground">
-                {service.description}
-              </p>
+
+              <Button asChild className="mt-4">
+                <Link
+                  href={`https://api.whatsapp.com/send/?phone=9664291374&text=I am looking for ${service.description} service&type=phone_number&app_absent=0`}
+                >
+                  Book Now
+                </Link>
+              </Button>
             </div>
 
             <Image
