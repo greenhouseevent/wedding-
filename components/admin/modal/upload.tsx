@@ -1,4 +1,5 @@
 import React, { SetStateAction, useState } from "react";
+import { Circle } from "lucide-react";
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -15,56 +16,100 @@ import axios from "axios";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
+const types = {
+  Services: { maxImage: 6, heading: true },
+  WeddingTypes: { maxImage: 6, heading: true },
+  WeddingGallery: { maxImage: 4, heading: false },
+  WeddingTrends: { maxImage: 5, heading: false },
+};
+
 const HomePageUploadModal = ({
   selectedCategory,
   setShowUploadModal,
   showUploadModal,
 }: {
-  selectedCategory: "WeddingTypes" | "WeddingGallery" | "WeddingTrends";
+  selectedCategory:
+    | "Services"
+    | "WeddingTypes"
+    | "WeddingGallery"
+    | "WeddingTrends";
   setShowUploadModal: React.Dispatch<SetStateAction<boolean>>;
   showUploadModal: boolean;
 }) => {
   const { toast } = useToast();
   const [image, setImage] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const [, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [text, setText] = useState<undefined | string>(undefined);
+
+  const handleImageUpload = async () => {
+    if (!image) return;
+    try {
+      // Convert image to base64 using a promise
+      const convertToBase64 = (file: File): Promise<string> => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => resolve(reader.result as string);
+          reader.onerror = (error) => reject(error);
+        });
+      };
+      const base64Image = await convertToBase64(image);
+
+      const response = await axios.post("/api/cloudinary/upload", {
+        imageBlob: base64Image,
+      });
+
+      const { publicId } = response.data;
+      if (publicId) {
+        console.log("Image uploaded successfully");
+        toast({
+          title: "Image uploaded successfully",
+          description: "Your image has been uploaded to Cloudinary",
+        });
+        setShowUploadModal(false);
+        handleCancel();
+        return publicId;
+      } else {
+        toast({
+          title: "Upload failed",
+          description: "Please try again! Something went wrong.",
+          variant: "destructive",
+        });
+        throw new Error("Image uploading failed...");
+      }
+    } catch (error) {
+      console.log("Error uploading image:", error);
+      toast({
+        title: "Image upload failed",
+        description: "An error occurred while uploading the image.",
+        variant: "destructive",
+      });
+      throw error;
+    }
+  };
 
   const handleUpload = async () => {
-    if (!image) return;
     setLoading(true);
     try {
-      // Convert the image file to base64
-      const reader = new FileReader();
-      reader.readAsDataURL(image);
-
-      reader.onload = async () => {
-        const base64Image = reader.result as string;
-
-        const response = await axios.post("/api/cloudinary/upload", {
-          imageBlob: base64Image,
-        });
-
-        if (response.data.publicId) {
-          console.log("Image uploaded successfully");
-          toast({
-            title: "Image uploaded successfully",
-            description: "Your image has been uploaded to Cloudinary",
-          });
-          setShowUploadModal(false);
-          handleCancel();
-        } else {
-          toast({
-            title: "Upload failed",
-            description: "Please try again! Something went wrong.",
-            variant: "destructive",
-          });
-        }
-      };
-    } catch (error) {
-      console.error("Error uploading image:", error);
+      const imagePublicId = await handleImageUpload();
+      console.log(imagePublicId);
+      const resonse = await axios.post("/api/admin/homepage/upload", {
+        selectedCategory,
+        imagePublicId: imagePublicId,
+        hasText: types[selectedCategory],
+        text: text,
+      });
+      console.log(resonse.data);
       toast({
-        title: "Upload failed",
-        description: "An error occurred while uploading the image.",
+        title: "Form uploaded successfully",
+        description: "Your form has been uploaded.",
+      });
+    } catch (error) {
+      console.log(error);
+      toast({
+        title: "Form upload failed",
+        description: "An error occurred while uploading the data.",
         variant: "destructive",
       });
     }
@@ -85,7 +130,7 @@ const HomePageUploadModal = ({
               {selectedCategory}
             </AlertDialogTitle>
             <AlertDialogDescription className="flex flex-col items-start justify-start">
-              <span className="flex items-center justify-start">
+              <span className="flex w-full items-center justify-start">
                 <span className="my-4 block h-64 w-full border-spacing-4 overflow-hidden border-2 border-dotted">
                   <input
                     type="file"
@@ -99,7 +144,7 @@ const HomePageUploadModal = ({
                         setImage(file);
                         setPreviewUrl(URL.createObjectURL(file));
                       } else {
-                        console.error("No file selected");
+                        console.log("No file selected");
                       }
                     }}
                   />
@@ -121,16 +166,18 @@ const HomePageUploadModal = ({
                   )}
                 </span>
               </span>
-              {selectedCategory === "WeddingTypes" && (
+              {types[selectedCategory].heading && (
                 <span className="mb-4 w-full">
-                  <label htmlFor="image-heading" className="mb-2 block">
+                  <label htmlFor="text" className="mb-2 block">
                     Image Heading
                   </label>
                   <Input
                     id="image-heading"
                     type="text"
                     className="w-full"
-                    placeholder="Please upload image heading"
+                    placeholder="Please provide image heading"
+                    onChange={(e) => setText(e.target.value)}
+                    value={text}
                   />
                 </span>
               )}
@@ -139,14 +186,18 @@ const HomePageUploadModal = ({
                   htmlFor="image-upload"
                   className={cn(buttonVariants(), "hover:cursor-pointer")}
                 >
-                  Image Heading
+                  Change Image
                 </label>
               </span>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel onClick={handleCancel}>Cancel</AlertDialogCancel>
-            <Button onClick={handleUpload}>Upload</Button>
+            <AlertDialogCancel disabled={loading} onClick={handleCancel}>
+              Cancel
+            </AlertDialogCancel>
+            <Button disabled={loading} onClick={handleUpload}>
+              {!loading ? "Upload" : "Uploading ..."}
+            </Button>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
