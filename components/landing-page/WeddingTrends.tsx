@@ -89,12 +89,6 @@ export const WeddingTrends = () => {
           />
         </div>
       </div>
-
-      <div className="my-4 flex items-center justify-center">
-        <Button className="rounded-none font-extrabold uppercase">
-          VIEW ALL
-        </Button>
-      </div>
     </Wrapper>
   );
 };

@@ -1,7 +1,8 @@
-import React from "react";
 import Image from "next/image";
 import { Wrapper } from "../Wrapper";
-import { Button } from "../ui/button";
+import { buttonVariants } from "../ui/button";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export const WeddingGallery = () => {
   const images = [
@@ -84,9 +85,15 @@ export const WeddingGallery = () => {
           </div>
         </div>
         <div className="my-4 flex items-center justify-center">
-          <Button className="rounded-none font-extrabold uppercase">
+          <Link
+            href={"/gallery"}
+            className={cn(
+              "rounded-none font-extrabold uppercase",
+              buttonVariants(),
+            )}
+          >
             VIEW ALL
-          </Button>
+          </Link>
         </div>
       </Wrapper>
     </div>

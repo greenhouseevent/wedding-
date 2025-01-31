@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { Wrapper } from "./Wrapper";
 import Image from "next/image";
@@ -7,7 +6,6 @@ import { Input } from "./ui/input";
 import { buttonVariants } from "./ui/button";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
-import { FaYoutube } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
 
 export const Footer = () => {
@@ -109,8 +107,6 @@ export const Footer = () => {
             >
               <FaInstagram className="text-blue-600" />
             </Link>
-
-            <FaYoutube className="text-red-600" />
           </div>
         </div>
       </Wrapper>

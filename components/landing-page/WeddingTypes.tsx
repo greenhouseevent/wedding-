@@ -9,7 +9,9 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export const WeddingTypes = () => {
   const weddingImages = [
@@ -102,9 +104,15 @@ export const WeddingTypes = () => {
           </CarouselContent>
         </Carousel>
         <div className="my-4 flex items-center justify-center">
-          <Button className="mx-auto rounded-none font-extrabold uppercase">
+          <Link
+            href={"/gallery"}
+            className={cn(
+              "mx-auto rounded-none font-extrabold uppercase",
+              buttonVariants(),
+            )}
+          >
             VIEW ALL WEDDINGS
-          </Button>
+          </Link>
         </div>
       </Wrapper>
     </div>

@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
@@ -8,7 +7,6 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import { Wrapper } from "../Wrapper";
-import { Button } from "../ui/button";
 
 export const Trending = () => {
   const cities = [
@@ -123,9 +121,6 @@ export const Trending = () => {
             </CarouselContent>
           </Carousel>
         </div>
-        <Button className="rounded-none font-extrabold uppercase">
-          VIEW ALL
-        </Button>
       </Wrapper>
     </div>
   );
