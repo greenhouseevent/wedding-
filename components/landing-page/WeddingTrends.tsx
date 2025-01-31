@@ -1,7 +1,5 @@
-import React from "react";
 import { Wrapper } from "../Wrapper";
 import Image from "next/image";
-import { Button } from "../ui/button";
 
 export const WeddingTrends = () => {
   const images = [

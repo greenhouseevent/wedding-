@@ -1,6 +1,4 @@
 "use client";
-
-import React from "react";
 import { Wrapper } from "../Wrapper";
 import Image from "next/image";
 import {
@@ -9,7 +7,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { Button, buttonVariants } from "../ui/button";
+import { buttonVariants } from "../ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
