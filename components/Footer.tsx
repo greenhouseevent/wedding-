@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Wrapper } from "./Wrapper";
 import Image from "next/image";
 import { Input } from "./ui/input";
-import { Button, buttonVariants } from "./ui/button";
+import { buttonVariants } from "./ui/button";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
 import { FaYoutube } from "react-icons/fa6";
