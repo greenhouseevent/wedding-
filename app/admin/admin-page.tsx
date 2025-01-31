@@ -69,8 +69,9 @@ const AdminPage = ({
           {/* Show all selected category images */}
           {selectedCategory &&
             props[selectedCategory].length > 0 &&
-            props[selectedCategory].map((value) => (
+            props[selectedCategory].map((value, indx) => (
               <Image
+                key={indx}
                 src={value.imageUrl}
                 width={100}
                 height={100}
