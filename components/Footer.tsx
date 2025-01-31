@@ -4,10 +4,11 @@ import React, { useState } from "react";
 import { Wrapper } from "./Wrapper";
 import Image from "next/image";
 import { Input } from "./ui/input";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
 import { FaYoutube } from "react-icons/fa6";
+import { cn } from "@/lib/utils";
 
 export const Footer = () => {
   const [number, setNumber] = useState<null | string>(null);
@@ -81,12 +82,15 @@ export const Footer = () => {
                 onKeyDown={(e) => e.key === "Enter" && onSubmit()}
               />
             </div>
-            <Button
-              className="mr-auto font-semibold uppercase"
-              onClick={() => onSubmit()}
+            <Link
+              href={`https://api.whatsapp.com/send/?phone=9664291374&text=Kindly%20give%20me%20a%20callback&type=phone_number&app_absent=0`}
+              className={cn(
+                "mr-auto font-semibold uppercase",
+                buttonVariants(),
+              )}
             >
-              SUBSCRIBE
-            </Button>
+              Contact Me
+            </Link>
           </div>
           <div className="mb-4 mr-auto flex justify-start gap-2 text-xl">
             <Link
