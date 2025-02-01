@@ -1,21 +1,28 @@
 import { Hero } from "@/components/landing-page/Hero";
-import { Services } from "@/components/landing-page/Services";
+import { Services as ServiceComp } from "@/components/landing-page/Services";
 import { Trending } from "@/components/landing-page/Trending";
-import { WeddingGallery } from "@/components/landing-page/WeddingGallery";
-import { WeddingTrends } from "@/components/landing-page/WeddingTrends";
-import { WeddingTypes } from "@/components/landing-page/WeddingTypes";
+import { WeddingGallery as WeddingGalleryComp } from "@/components/landing-page/WeddingGallery";
+import { WeddingTrends as WeddingTrendsComp } from "@/components/landing-page/WeddingTrends";
+import { WeddingTypes as WeddingTypesComp } from "@/components/landing-page/WeddingTypes";
 import Link from "next/link";
 import { BsWhatsapp } from "react-icons/bs";
+import prisma from "@/lib/prisma";
 
-export default function Home() {
+export default async function Home() {
+  const [Services, WeddingTypes, WeddingGallery, WeddingTrends] = [
+    await prisma.Services.findMany({}),
+    await prisma.WeddingTypes.findMany({}),
+    await prisma.WeddingGallery.findMany({}),
+    await prisma.WeddingTrends.findMany({}),
+  ];
   return (
     <div className="relative min-h-screen">
       <Hero />
-      <Services />
+      <ServiceComp photos={Services} />
       <Trending />
-      <WeddingTypes />
-      <WeddingGallery />
-      <WeddingTrends />
+      <WeddingTypesComp photos={WeddingTypes} />
+      <WeddingGalleryComp photos={WeddingGallery} />
+      <WeddingTrendsComp photos={WeddingTrends} />
       <Link
         href={`https://api.whatsapp.com/send/?phone=9664291374&text=Kindly%20give%20me%20a%20callback&type=phone_number&app_absent=0`}
         target="_blank"

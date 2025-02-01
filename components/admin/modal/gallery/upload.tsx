@@ -10,29 +10,17 @@ import {
 } from "@/components/ui/alert-dialog";
 import Image from "next/image";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import axios from "axios";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 
-const types = {
-  Services: { maxImage: 6, heading: true },
-  WeddingTypes: { maxImage: 6, heading: true },
-  WeddingGallery: { maxImage: 4, heading: false },
-  WeddingTrends: { maxImage: 5, heading: false },
-};
-
-const HomePageUploadModal = ({
+const GalleryUploadModal = ({
   selectedCategory,
   setShowUploadModal,
   showUploadModal,
 }: {
-  selectedCategory:
-    | "Services"
-    | "WeddingTypes"
-    | "WeddingGallery"
-    | "WeddingTrends";
+  selectedCategory: "Mehndi" | "Sangeet" | "Wedding" | "Brunch";
   setShowUploadModal: React.Dispatch<SetStateAction<boolean>>;
   showUploadModal: boolean;
 }) => {
@@ -41,7 +29,6 @@ const HomePageUploadModal = ({
   const [image, setImage] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [text, setText] = useState<string>("");
 
   const handleImageUpload = async () => {
     if (!image) return;
@@ -96,22 +83,18 @@ const HomePageUploadModal = ({
       const imagePublicId = await handleImageUpload();
       console.log(imagePublicId);
 
-      const resonse = await axios.post("/api/admin/homepage/upload", {
+      const resonse = await axios.post("/api/admin/gallery/upload", {
         selectedCategory,
         imagePublicId: imagePublicId,
-        hasText: types[selectedCategory],
-        text: text,
       });
       console.log(resonse.data);
       toast({
-        title: "Form uploaded successfully",
-        description: "Your form has been uploaded.",
+        title: "Uploaded successfully",
       });
     } catch (error) {
       console.log(error);
       toast({
-        title: "Form upload failed",
-        description: "An error occurred while uploading the data.",
+        title: "Uplaoding failed...",
         variant: "destructive",
       });
     }
@@ -169,21 +152,7 @@ const HomePageUploadModal = ({
                   )}
                 </span>
               </span>
-              {types[selectedCategory].heading && (
-                <span className="mb-4 w-full">
-                  <label htmlFor="text" className="mb-2 block">
-                    Image Heading
-                  </label>
-                  <Input
-                    id="image-heading"
-                    type="text"
-                    className="w-full"
-                    placeholder="Please provide image heading"
-                    onChange={(e) => setText(e.target.value)}
-                    value={text}
-                  />
-                </span>
-              )}
+
               <span className="flex items-start justify-start gap-4">
                 <label
                   htmlFor="image-upload"
@@ -208,4 +177,4 @@ const HomePageUploadModal = ({
   );
 };
 
-export default HomePageUploadModal;
+export default GalleryUploadModal;

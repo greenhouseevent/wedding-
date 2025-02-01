@@ -4,13 +4,21 @@ import { buttonVariants } from "../ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-export const WeddingGallery = () => {
+export const WeddingGallery = ({ photos }) => {
+  let img = [];
+
+  photos.forEach((element) => {
+    img.push(element.imageUrl);
+  });
+
   const images = [
+    // ...img,
     "https://www.fiestroevents.com/uploads/2023-05-16-64636e5290e89.jpg",
     "https://www.fiestroevents.com/uploads/2024-05-13-6641ecccb1873.png",
     "https://www.fiestroevents.com/uploads/2023-06-02-6479b2499c2d9.png",
     "https://www.fiestroevents.com/uploads/2024-05-13-6641ecd8a2307.png",
   ];
+
   return (
     <div>
       <Wrapper className="p-4">
@@ -47,7 +55,7 @@ export const WeddingGallery = () => {
               width={100}
               height={100}
               alt="img"
-              className="h-full w-full object-cover"
+              className="object-fit h-full max-h-[36rem] w-full overflow-hidden"
               unoptimized
             />
           </div>
@@ -58,7 +66,7 @@ export const WeddingGallery = () => {
                 width={100}
                 height={100}
                 alt="img"
-                className="h-full w-full object-cover"
+                className="max-h-68 object-fit h-full w-full"
                 unoptimized
               />
             </div>
@@ -68,7 +76,7 @@ export const WeddingGallery = () => {
                 width={100}
                 height={100}
                 alt="img"
-                className="h-full w-full object-cover"
+                className="object-fit h-full w-full"
                 unoptimized
               />
             </div>
@@ -78,7 +86,7 @@ export const WeddingGallery = () => {
                 width={100}
                 height={100}
                 alt="img"
-                className="h-full w-full object-cover"
+                className="object-fit h-full w-full"
                 unoptimized
               />
             </div>

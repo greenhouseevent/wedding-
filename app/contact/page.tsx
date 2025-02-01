@@ -213,6 +213,16 @@ const Contact = () => {
             </Form>
           </div>
         </div>
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28886.84402132794!2d75.83333663084608!3d25.17435647441214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396f85bfdf3080a1%3A0x27ef019259d3f177!2sGreen%20House%20Event%20-%20Best%20Wedding%20Planner%20In%20Kota!5e0!3m2!1sen!2sin!4v1738318281078!5m2!1sen!2sin"
+          width="600"
+          height="450"
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="w-full"
+        ></iframe>
       </Wrapper>
     </div>
   );

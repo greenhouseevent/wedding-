@@ -14,10 +14,6 @@ const GalleryPage = () => {
       event: "SANGEET",
     },
     {
-      img: "https://www.fiestroevents.com/script/public/galleryimage/image-1726734891.png",
-      event: "MEHNDI",
-    },
-    {
       img: "https://www.fiestroevents.com/script/public/galleryimage/image-1726734881.png",
       event: "WEDDING",
     },
@@ -30,6 +26,7 @@ const GalleryPage = () => {
       event: "ALL",
     },
   ];
+
   return (
     <div>
       <Wrapper>

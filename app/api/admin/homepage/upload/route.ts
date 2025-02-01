@@ -18,18 +18,18 @@ export async function POST(req: NextRequest) {
     } = await req.json();
 
     console.log(selectedCategory, imagePublicId);
-
-    console.log(cloudinary.url(imagePublicId));
     let prismaResponse;
-    if (!hasText) {
-      prismaResponse = await prisma[selectedCategory].updateManyAndReturn({
+    console.log((prismaResponse = await prisma[selectedCategory]));
+
+    if (!hasText?.heading) {
+      prismaResponse = await prisma[selectedCategory].create({
         data: {
           publicId: imagePublicId,
           imageUrl: cloudinary.url(imagePublicId),
         },
       });
     } else {
-      prismaResponse = await prisma[selectedCategory].updateManyAndReturn({
+      prismaResponse = await prisma[selectedCategory].create({
         data: {
           publicId: imagePublicId,
           imageUrl: cloudinary.url(imagePublicId),

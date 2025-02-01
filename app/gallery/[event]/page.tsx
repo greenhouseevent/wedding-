@@ -1,97 +1,24 @@
 import { Wrapper } from "@/components/Wrapper";
 import Image from "next/image";
 import React from "react";
+import prisma from "@/lib/prisma";
+import { Gallery } from "@prisma/client";
 
 const Page = async ({ params }: { params: Promise<{ event: string }> }) => {
   const param = await params;
   const eventType = param.event;
 
-  const path = `/assets/images/gallery/${eventType}/`;
-
-  const mehndi = [
-    "1.JPG",
-    "2.JPG",
-    "3.JPG",
-    "4.JPG",
-    "5.JPG",
-    "6.JPG",
-    "7.JPG",
-    "8.JPG",
-    "9.JPG",
-    "10.JPG",
-    "11.JPG",
-    "12.JPG",
-  ];
-  const sangeet = [
-    "1.JPG",
-    "2.JPG",
-    "3.JPG",
-    "4.JPG",
-    "5.JPG",
-    "6.JPG",
-    "7.JPG",
-    "8.JPG",
-    "9.JPG",
-    "10.JPG",
-    "11.JPG",
-    "12.JPG",
-  ];
-  const wedding = [
-    "1.JPG",
-    "2.JPG",
-    "3.JPG",
-    "4.JPG",
-    "5.JPG",
-    "6.JPG",
-    "7.JPG",
-    "8.JPG",
-    "9.JPG",
-    "10.JPG",
-    "11.JPG",
-    "12.JPG",
-  ];
-  const brunch = [
-    "1.JPG",
-    "2.JPG",
-    "3.JPG",
-    "4.JPG",
-    "5.JPG",
-    "6.JPG",
-    "7.JPG",
-    "8.JPG",
-    "9.JPG",
-    "10.JPG",
-    "11.JPG",
-    "12.JPG",
-  ];
-  const all = [
-    "1.JPG",
-    "2.JPG",
-    "3.JPG",
-    "4.JPG",
-    "5.JPG",
-    "6.JPG",
-    "7.JPG",
-    "8.JPG",
-    "9.JPG",
-    "10.JPG",
-    "11.JPG",
-    "12.JPG",
-  ];
+  const allGalleryImgs: Gallery[] = await prisma.Gallery.findMany();
+  console.log(allGalleryImgs);
 
   const getArray = () => {
     switch (eventType) {
-      case "mehndi":
-        return mehndi;
-      case "sangeet":
-        return sangeet;
-      case "wedding":
-        return wedding;
-      case "brunch":
-        return brunch;
       case "all":
+        return allGalleryImgs;
       default:
-        return all;
+        return allGalleryImgs.filter(
+          (img) => img.galleryCategory.toLowerCase() === eventType,
+        );
     }
   };
 
@@ -117,7 +44,7 @@ const Page = async ({ params }: { params: Promise<{ event: string }> }) => {
             key={index}
           >
             <Image
-              src={`${path}${img}`}
+              src={img.imageUrl}
               width={400}
               height={300}
               alt={`Event photo ${index + 1}`}

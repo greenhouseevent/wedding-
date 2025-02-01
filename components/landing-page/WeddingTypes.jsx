@@ -11,28 +11,29 @@ import { buttonVariants } from "../ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-export const WeddingTypes = () => {
+export const WeddingTypes = ({ photos }) => {
   const weddingImages = [
-    {
-      imageUrl:
-        "https://www.fiestroevents.com/uploads/2023-05-17-6464bd356355d.webp",
-      text: "Maharastrian Wedding",
-    },
-    {
-      imageUrl:
-        "https://www.fiestroevents.com/uploads/2023-05-16-646370c9781b6.jpg",
-      text: "Punjabi Wedding",
-    },
-    {
-      imageUrl:
-        "https://www.fiestroevents.com/uploads/2022-10-29-635cc0b63a601.webp",
-      text: "Arya Samaj Wedding",
-    },
-    {
-      imageUrl:
-        "https://www.fiestroevents.com/uploads/2023-05-16-646370fb6f74b.jpg",
-      text: "Hindu Wedding",
-    },
+    ...photos,
+    // {
+    //   imageUrl:
+    //     "https://www.fiestroevents.com/uploads/2023-05-17-6464bd356355d.webp",
+    //   text: "Maharastrian Wedding",
+    // },
+    // {
+    //   imageUrl:
+    //     "https://www.fiestroevents.com/uploads/2023-05-16-646370c9781b6.jpg",
+    //   text: "Punjabi Wedding",
+    // },
+    // {
+    //   imageUrl:
+    //     "https://www.fiestroevents.com/uploads/2022-10-29-635cc0b63a601.webp",
+    //   text: "Arya Samaj Wedding",
+    // },
+    // {
+    //   imageUrl:
+    //     "https://www.fiestroevents.com/uploads/2023-05-16-646370fb6f74b.jpg",
+    //   text: "Hindu Wedding",
+    // },
   ];
   return (
     <div className="bg-muted-foreground/10 py-1">

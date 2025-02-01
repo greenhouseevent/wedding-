@@ -1,8 +1,16 @@
 import { Wrapper } from "../Wrapper";
 import Image from "next/image";
 
-export const WeddingTrends = () => {
+export const WeddingTrends = ({ photos }) => {
+  console.log(photos, "from wedding trends");
+
+  let imgUrl = [];
+  photos.forEach((element) => {
+    imgUrl.push(element.imageUrl);
+  });
+
   const images = [
+    ...imgUrl,
     "https://www.fiestroevents.com/uploads/2024-05-06-6638986d1df30.png",
     "https://www.fiestroevents.com/uploads/2024-12-02-674d4f6798172.png",
     "https://www.fiestroevents.com/uploads/2022-10-29-635cbee72b8e8.webp",
@@ -42,7 +50,7 @@ export const WeddingTrends = () => {
             alt="image"
             width={100}
             height={100}
-            className="aspect-video h-full w-full object-cover transition-transform duration-300 hover:scale-125"
+            className="object-fit aspect-video h-full w-full transition-transform duration-300 hover:scale-125"
             unoptimized
           />
         </div>
@@ -52,7 +60,7 @@ export const WeddingTrends = () => {
             alt="image"
             width={100}
             height={100}
-            className="aspect-video h-full w-full object-cover transition-transform duration-300 hover:scale-125"
+            className="object-fit aspect-video h-full w-full transition-transform duration-300 hover:scale-125"
             unoptimized
           />
         </div>
@@ -62,7 +70,7 @@ export const WeddingTrends = () => {
             alt="image"
             width={100}
             height={100}
-            className="aspect-video h-full w-full object-cover transition-transform duration-300 hover:scale-125"
+            className="object-fit aspect-video h-full w-full transition-transform duration-300 hover:scale-125"
             unoptimized
           />
         </div>
@@ -72,7 +80,7 @@ export const WeddingTrends = () => {
             alt="image"
             width={100}
             height={100}
-            className="aspect-video h-full w-full object-cover transition-transform duration-300 hover:scale-125"
+            className="object-fit aspect-video h-full w-full transition-transform duration-300 hover:scale-125"
             unoptimized
           />
         </div>
@@ -82,7 +90,7 @@ export const WeddingTrends = () => {
             alt="image"
             width={100}
             height={100}
-            className="aspect-video h-full w-full object-cover transition-transform duration-300 hover:scale-125"
+            className="object-fit aspect-video h-full w-full transition-transform duration-300 hover:scale-125"
             unoptimized
           />
         </div>

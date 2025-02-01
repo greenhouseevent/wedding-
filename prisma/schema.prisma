@@ -7,28 +7,48 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  password String
+}
+
 model Services {
   id       Int    @id @default(autoincrement())
   text     String
-  publicId String
+  publicId String @unique
   imageUrl String
 }
 
 model WeddingTypes {
   id       Int    @id @default(autoincrement())
-  publicId String
+  publicId String @unique
   imageUrl String
   text     String
 }
 
 model WeddingGallery {
   id       Int    @id @default(autoincrement())
-  publicId String
+  publicId String @unique
   imageUrl String
 }
 
 model WeddingTrends {
   id       Int    @id @default(autoincrement())
-  publicId String
+  publicId String @unique
   imageUrl String
+}
+
+enum GalleryCategory {
+  Mehndi
+  Sangeet
+  Wedding
+  Brunch
+}
+
+model Gallery {
+  id              Int             @id @default(autoincrement())
+  galleryCategory GalleryCategory
+  publicId        String          @unique
+  imageUrl        String
 }

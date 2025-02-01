@@ -3,7 +3,8 @@ import React from "react";
 import { Wrapper } from "../Wrapper";
 import ServicesCard from "../ServicesCard";
 
-export const Services = () => {
+export const Services = ({ photos }) => {
+  console.log(photos, "from services");
   return (
     <div className="relative mt-4 h-full w-full" id="services">
       <Wrapper className="p-4">
@@ -48,7 +49,7 @@ export const Services = () => {
           />
         </div>
         <div>
-          <ServicesCard />
+          <ServicesCard photos={photos} />
         </div>
       </Wrapper>
       <div className="absolute top-0 -z-10 h-full w-full">
