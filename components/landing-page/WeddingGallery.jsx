@@ -49,7 +49,7 @@ export const WeddingGallery = ({ photos }) => {
               width={100}
               height={100}
               alt="img"
-              className="object-fit h-full max-h-[36rem] w-full overflow-hidden"
+              className="object-fit h-full w-full overflow-hidden"
               unoptimized
             />
           </div>
