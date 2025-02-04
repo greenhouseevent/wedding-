@@ -8,6 +8,8 @@ import Link from "next/link";
 import { BsWhatsapp } from "react-icons/bs";
 import prisma from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const [Services, WeddingTypes, WeddingGallery, WeddingTrends] = [
     await prisma.Services.findMany({}),
