@@ -11,13 +11,7 @@ export const WeddingGallery = ({ photos }) => {
     img.push(element.imageUrl);
   });
 
-  const images = [
-    ...img,
-    "https://www.fiestroevents.com/uploads/2023-05-16-64636e5290e89.jpg",
-    "https://www.fiestroevents.com/uploads/2024-05-13-6641ecccb1873.png",
-    "https://www.fiestroevents.com/uploads/2023-06-02-6479b2499c2d9.png",
-    "https://www.fiestroevents.com/uploads/2024-05-13-6641ecd8a2307.png",
-  ];
+  const images = [...img];
 
   return (
     <div>
