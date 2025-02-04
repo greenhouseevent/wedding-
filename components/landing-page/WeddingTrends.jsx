@@ -9,14 +9,7 @@ export const WeddingTrends = ({ photos }) => {
     imgUrl.push(element.imageUrl);
   });
 
-  const images = [
-    ...imgUrl,
-    "https://www.fiestroevents.com/uploads/2024-05-06-6638986d1df30.png",
-    "https://www.fiestroevents.com/uploads/2024-12-02-674d4f6798172.png",
-    "https://www.fiestroevents.com/uploads/2022-10-29-635cbee72b8e8.webp",
-    "https://www.fiestroevents.com/uploads/2022-10-29-635cbebbc97ae.webp",
-    "https://www.fiestroevents.com/uploads/2022-10-29-635cbf0940999.webp",
-  ];
+  const images = [...imgUrl];
   return (
     <Wrapper className="px-4">
       <div className="my-6 flex flex-col items-center justify-center">
